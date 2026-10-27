@@ -632,57 +632,147 @@
       object-fit: contain;
     }
 
-    /* IMAGE LIGHTBOX */
+    
+/* FACEBOOK-STYLE SLIDING PHOTO VIEWER */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  flex-direction: column;
+  padding: 0;
+  background: rgba(8, 8, 8, .98);
+  color: white;
+  overflow: hidden;
+}
 
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 500;
-      inset: 0;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(0,0,0,.92);
-    }
+.lightbox.open {
+  display: flex;
+}
 
-    .lightbox.open {
-      display: flex;
-    }
+.viewer-top {
+  flex: 0 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
 
-    .lightbox img {
-      max-width: min(100%, 1100px);
-      max-height: 84vh;
-      object-fit: contain;
-      border-radius: 8px;
-    }
+#viewerTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
 
-    .lightbox-close {
-      position: absolute;
-      top: 12px;
-      right: 18px;
-      border: 0;
-      background: transparent;
-      color: white;
-      font-size: 2.5rem;
-      line-height: 1;
-    }
+#viewerCounter {
+  color: #83e5e5;
+  font-size: 13px;
+  white-space: nowrap;
+}
 
-    .lightbox-prev,
-    .lightbox-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border: 0;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      background: rgba(255,255,255,.18);
-      color: white;
-      font-size: 1.6rem;
-    }
+.lightbox-close {
+  position: static;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  background: #222;
+  color: white;
+  font-size: 28px;
+  line-height: 1;
+}
 
-    .lightbox-prev { left: 12px; }
-    .lightbox-next { right: 12px; }
+.viewer-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+  overscroll-behavior: contain;
+}
+
+.slide-track {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transform: translate3d(-33.333333%, 0, 0);
+  will-change: transform;
+}
+
+.slide-panel {
+  display: flex;
+  flex: 0 0 33.333333%;
+  width: 33.333333%;
+  height: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.slide-panel img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+.viewer-bottom {
+  flex: 0 0 auto;
+  padding: 14px 12px calc(16px + env(safe-area-inset-bottom));
+  text-align: center;
+  color: rgba(255,255,255,.7);
+  font-size: 12px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  background: rgba(0,0,0,.45);
+  color: white;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.lightbox-prev { left: 12px; }
+.lightbox-next { right: 12px; }
+
+@media (max-width: 700px) {
+  .viewer-top {
+    flex-basis: 58px;
+    padding: 0 12px;
+  }
+
+  .slide-panel {
+    padding: 8px;
+  }
+
+  .lightbox-prev { left: 5px; }
+  .lightbox-next { right: 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-track {
+    will-change: auto;
+  }
+}
+
 
     /* MOBILE INQUIRY BAR */
 
@@ -1225,17 +1315,42 @@
     <a class="btn btn-primary" href="#contact">Inquire Now</a>
   </div>
 
-  <!-- PHOTO LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog"
-    aria-modal="true" aria-label="Photo viewer">
+
+<!-- FACEBOOK-STYLE PHOTO VIEWER -->
+<div class="lightbox" id="lightbox" role="dialog"
+     aria-modal="true" aria-label="Resort photo viewer">
+
+  <div class="viewer-top">
+    <strong id="viewerTitle">BluVali Beach Resort</strong>
+    <span id="viewerCounter">1 / 2</span>
     <button class="lightbox-close" id="lightboxClose"
-      type="button" aria-label="Close photo viewer">×</button>
-    <button class="lightbox-prev" id="lightboxPrev"
-      type="button" aria-label="Previous photo">‹</button>
-    <img id="lightboxImage" src="" alt="Resort photo">
-    <button class="lightbox-next" id="lightboxNext"
-      type="button" aria-label="Next photo">›</button>
+            type="button" aria-label="Close photo viewer">×</button>
   </div>
+
+  <div class="viewer-stage" id="viewerStage">
+    <div class="slide-track" id="slideTrack">
+      <div class="slide-panel">
+        <img id="prevImage" src="" alt="Previous photo" draggable="false">
+      </div>
+      <div class="slide-panel">
+        <img id="lightboxImage" src="" alt="Resort photo" draggable="false">
+      </div>
+      <div class="slide-panel">
+        <img id="nextImage" src="" alt="Next photo" draggable="false">
+      </div>
+    </div>
+
+    <button class="lightbox-prev" id="lightboxPrev"
+            type="button" aria-label="Previous photo">‹</button>
+    <button class="lightbox-next" id="lightboxNext"
+            type="button" aria-label="Next photo">›</button>
+  </div>
+
+  <div class="viewer-bottom">
+    <span>Swipe or use the arrows to explore photos</span>
+  </div>
+</div>
+
 
   <script>
     /*
@@ -1474,104 +1589,214 @@
     });
 
     /*
-      PHOTO LIGHTBOX
-    */
+   
+/* FACEBOOK-STYLE PHOTO LIGHTBOX */
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const prevImage = document.getElementById("prevImage");
+const nextImage = document.getElementById("nextImage");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+const viewerStage = document.getElementById("viewerStage");
+const slideTrack = document.getElementById("slideTrack");
+const viewerTitle = document.getElementById("viewerTitle");
+const viewerCounter = document.getElementById("viewerCounter");
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxClose = document.getElementById("lightboxClose");
-    const lightboxPrev = document.getElementById("lightboxPrev");
-    const lightboxNext = document.getElementById("lightboxNext");
+let currentPhotos = [];
+let currentPhotoIndex = 0;
+let currentPhotoCaption = "Resort photo";
 
-    let currentPhotos = [];
-    let currentPhotoIndex = 0;
-    let currentPhotoCaption = "";
+let startX = 0;
+let startY = 0;
+let dragX = 0;
+let dragging = false;
+let horizontalDrag = false;
+let activePointerId = null;
+let isAnimating = false;
+let animationTimer = null;
 
-    function openLightbox(photos, startIndex, caption) {
-      currentPhotos = photos;
-      currentPhotoIndex = startIndex;
-      currentPhotoCaption = caption || "Resort photo";
-      updateLightboxImage();
-      lightbox.classList.add("open");
-      document.body.style.overflow = "hidden";
-      lightboxClose.focus();
-    }
+const SWIPE_THRESHOLD = 0.18;
+const SLIDE_DURATION = 280;
 
-    function updateLightboxImage() {
-      if (!currentPhotos.length) return;
+function openLightbox(photos, startIndex, caption) {
+  if (!photos || !photos.length) return;
 
-      lightboxImage.src = currentPhotos[currentPhotoIndex];
-      lightboxImage.alt = currentPhotoCaption;
-    }
+  currentPhotos = photos;
+  currentPhotoIndex = startIndex;
+  currentPhotoCaption = caption || "Resort photo";
 
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-      document.body.style.overflow = "";
-    }
+  prepareSlideImages();
+  updateViewerInfo();
 
-    function showPreviousPhoto() {
-      if (!currentPhotos.length) return;
-      currentPhotoIndex =
-        (currentPhotoIndex - 1 + currentPhotos.length) % currentPhotos.length;
-      updateLightboxImage();
-    }
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+  resetTrack(false);
+  lightboxClose.focus();
+}
 
-    function showNextPhoto() {
-      if (!currentPhotos.length) return;
-      currentPhotoIndex =
-        (currentPhotoIndex + 1) % currentPhotos.length;
-      updateLightboxImage();
-    }
+function prepareSlideImages() {
+  if (!currentPhotos.length) return;
 
-    lightboxClose.addEventListener("click", closeLightbox);
-    lightboxPrev.addEventListener("click", showPreviousPhoto);
-    lightboxNext.addEventListener("click", showNextPhoto);
+  const previousIndex =
+    (currentPhotoIndex - 1 + currentPhotos.length) % currentPhotos.length;
+  const nextIndex =
+    (currentPhotoIndex + 1) % currentPhotos.length;
 
-    lightbox.addEventListener("click", event => {
-      if (event.target === lightbox) closeLightbox();
-    });
+  prevImage.src = currentPhotos[previousIndex];
+  lightboxImage.src = currentPhotos[currentPhotoIndex];
+  nextImage.src = currentPhotos[nextIndex];
 
-    document.addEventListener("keydown", event => {
-      if (!lightbox.classList.contains("open")) return;
+  prevImage.alt = currentPhotoCaption + " — previous photo";
+  lightboxImage.alt = currentPhotoCaption;
+  nextImage.alt = currentPhotoCaption + " — next photo";
+}
 
-      if (event.key === "Escape") closeLightbox();
-      if (event.key === "ArrowLeft") showPreviousPhoto();
-      if (event.key === "ArrowRight") showNextPhoto();
-    });
+function updateViewerInfo() {
+  viewerTitle.textContent = currentPhotoCaption;
+  viewerCounter.textContent =
+    `${currentPhotoIndex + 1} / ${currentPhotos.length}`;
+}
 
+function setTrackPosition(offset, animate = false) {
+  slideTrack.style.transition = animate
+    ? `transform ${SLIDE_DURATION}ms cubic-bezier(.22,.61,.36,1)`
+    : "none";
 
-    
-/* MOBILE SWIPE: Facebook-style photo navigation */
-let touchStartX = 0;
-let touchStartY = 0;
+  slideTrack.style.transform =
+    `translate3d(calc(-33.333333% + ${offset}px), 0, 0)`;
+}
 
-lightbox.addEventListener("touchstart", event => {
-  if (!lightbox.classList.contains("open")) return;
+function resetTrack(animate = false) {
+  setTrackPosition(0, animate);
+}
 
-  touchStartX = event.changedTouches[0].screenX;
-  touchStartY = event.changedTouches[0].screenY;
-}, { passive: true });
+function finishSlide(direction) {
+  if (isAnimating || !currentPhotos.length) return;
 
-lightbox.addEventListener("touchend", event => {
-  if (!lightbox.classList.contains("open")) return;
+  isAnimating = true;
+  const width = viewerStage.clientWidth;
 
-  const touchEndX = event.changedTouches[0].screenX;
-  const touchEndY = event.changedTouches[0].screenY;
+  // Left reveals next photo; right reveals previous photo.
+  setTrackPosition(direction === 1 ? -width : width, true);
 
-  const diffX = touchEndX - touchStartX;
-  const diffY = touchEndY - touchStartY;
+  clearTimeout(animationTimer);
+  animationTimer = setTimeout(() => {
+    currentPhotoIndex =
+      (currentPhotoIndex + direction + currentPhotos.length) %
+      currentPhotos.length;
 
-  // Ignore vertical scrolling gestures and small movements.
-  if (Math.abs(diffX) < 50 || Math.abs(diffX) < Math.abs(diffY)) {
+    prepareSlideImages();
+    updateViewerInfo();
+    resetTrack(false);
+    isAnimating = false;
+  }, SLIDE_DURATION + 30);
+}
+
+function showPreviousPhoto() {
+  finishSlide(-1);
+}
+
+function showNextPhoto() {
+  finishSlide(1);
+}
+
+viewerStage.addEventListener("pointerdown", event => {
+  if (isAnimating || !lightbox.classList.contains("open")) return;
+  if (event.target.closest("button")) return;
+  if (event.pointerType === "mouse" && event.button !== 0) return;
+
+  startX = event.clientX;
+  startY = event.clientY;
+  dragX = 0;
+  dragging = true;
+  horizontalDrag = false;
+  activePointerId = event.pointerId;
+
+  slideTrack.style.transition = "none";
+
+  try {
+    viewerStage.setPointerCapture(event.pointerId);
+  } catch (_) {}
+});
+
+viewerStage.addEventListener("pointermove", event => {
+  if (!dragging || event.pointerId !== activePointerId) return;
+
+  const dx = event.clientX - startX;
+  const dy = event.clientY - startY;
+
+  if (!horizontalDrag) {
+    if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+    if (Math.abs(dy) > Math.abs(dx) * 1.15) return;
+    horizontalDrag = true;
+  }
+
+  dragX = dx;
+  setTrackPosition(dx, false);
+});
+
+function endPhotoDrag(event) {
+  if (!dragging || event.pointerId !== activePointerId) return;
+
+  dragging = false;
+  activePointerId = null;
+
+  if (!horizontalDrag) {
+    resetTrack(true);
     return;
   }
 
-  if (diffX < 0) {
-    showNextPhoto();       // Swipe left: next photo
+  const threshold = Math.max(
+    45,
+    viewerStage.clientWidth * SWIPE_THRESHOLD
+  );
+
+  if (dragX < -threshold) {
+    finishSlide(1);
+  } else if (dragX > threshold) {
+    finishSlide(-1);
   } else {
-    showPreviousPhoto();   // Swipe right: previous photo
+    resetTrack(true);
   }
-}, { passive: true });
+}
+
+viewerStage.addEventListener("pointerup", endPhotoDrag);
+viewerStage.addEventListener("pointercancel", endPhotoDrag);
+
+function closeLightbox() {
+  if (!lightbox.classList.contains("open")) return;
+
+  clearTimeout(animationTimer);
+  dragging = false;
+  isAnimating = false;
+  activePointerId = null;
+
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+
+  lightboxImage.src = "";
+  prevImage.src = "";
+  nextImage.src = "";
+
+  resetTrack(false);
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightboxPrev.addEventListener("click", showPreviousPhoto);
+lightboxNext.addEventListener("click", showNextPhoto);
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", event => {
+  if (!lightbox.classList.contains("open")) return;
+
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowLeft") showPreviousPhoto();
+  if (event.key === "ArrowRight") showNextPhoto();
+});
 
 
     /*
