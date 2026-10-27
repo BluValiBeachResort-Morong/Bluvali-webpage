@@ -1,0 +1,1586 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087e8b">
+
+  <title>BluVali Beach Resort | Morong, Bataan</title>
+  <meta name="description" content="Discover BluVali Beach Resort in Morong, Bataan. Explore our rooms, pools, amenities, and beach access. Contact us for inquiries.">
+
+  <style>
+    :root {
+      --teal: #087e8b;
+      --teal-dark: #075a68;
+      --aqua: #dff7f7;
+      --navy: #102f46;
+      --sand: #fff8ed;
+      --white: #ffffff;
+      --text: #304553;
+      --muted: #71818b;
+      --border: #e5edef;
+      --shadow: 0 12px 32px rgba(16, 47, 70, 0.10);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.65;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1160px, 92%);
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.76rem;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.2;
+      margin: 10px 0 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 2px solid transparent;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--teal);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+    }
+
+    .btn-light {
+      color: var(--navy);
+      background: white;
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,.85);
+      color: white;
+      background: transparent;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 3px 18px rgba(16,47,70,.06);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 180px;
+      max-height: 68px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: .93rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--teal);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 1.7rem;
+      padding: 5px 10px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      min-height: 590px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background: var(--navy);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5,35,52,.82), rgba(5,35,52,.45) 55%, rgba(5,35,52,.16)),
+        url("Resort2.png") center 55% / cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(780px, 100%);
+      padding: 85px 0;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 7px 13px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,.55);
+      background: rgba(255,255,255,.12);
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 4.7rem);
+      line-height: 1.06;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #83e5e5;
+    }
+
+    .hero p {
+      max-width: 590px;
+      color: rgba(255,255,255,.91);
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* INTRO STRIP */
+
+    .intro-strip {
+      background: var(--sand);
+      padding: 27px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .intro-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .intro-item span {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* ROOMS */
+
+    .rooms-section {
+      background: #fff;
+    }
+
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .room-card {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+      transition: transform .2s;
+    }
+
+    .room-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .room-photos {
+      position: relative;
+      background: #edf6f6;
+    }
+
+    .room-main-photo {
+      width: 100%;
+      height: 235px;
+      object-fit: cover;
+      cursor: zoom-in;
+    }
+
+    .photo-count {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      color: white;
+      background: rgba(16,47,70,.78);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .room-thumbnails {
+      display: flex;
+      gap: 7px;
+      padding: 10px 12px 0;
+      overflow-x: auto;
+    }
+
+    .room-thumbnails img {
+      width: 62px;
+      height: 48px;
+      flex: 0 0 auto;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .room-thumbnails img:hover,
+    .room-thumbnails img.active {
+      border-color: var(--teal);
+    }
+
+    .room-info {
+      padding: 18px 19px 21px;
+    }
+
+    .room-info h3 {
+      color: var(--navy);
+      font-size: 1.16rem;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .room-description {
+      color: var(--muted);
+      font-size: .91rem;
+      min-height: 46px;
+    }
+
+    .room-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+      padding-top: 14px;
+    }
+
+    .room-price {
+      color: var(--teal-dark);
+      font-size: 1.42rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .room-price small {
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 600;
+    }
+
+    .room-inquire {
+      padding: 9px 13px;
+      font-size: .84rem;
+    }
+
+    .pricing-note {
+      margin-top: 25px;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: var(--aqua);
+      color: var(--teal-dark);
+      text-align: center;
+      font-size: .91rem;
+    }
+
+    /* AMENITIES */
+
+    .amenities-section {
+      background: #f4fbfb;
+    }
+
+    .amenity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .amenity {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 23px 15px;
+      text-align: center;
+    }
+
+    .amenity-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .amenity h3 {
+      color: var(--navy);
+      font-size: .98rem;
+      margin-bottom: 5px;
+    }
+
+    .amenity p {
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    /* FACILITIES */
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .facility-card {
+      display: grid;
+      grid-template-columns: 42% 1fr;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: white;
+    }
+
+    .facility-card > img {
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+    }
+
+    .facility-info {
+      padding: 20px;
+    }
+
+    .facility-info h3 {
+      color: var(--navy);
+      font-size: 1.13rem;
+      line-height: 1.3;
+      margin-bottom: 9px;
+    }
+
+    .facility-info p {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-bottom: 12px;
+    }
+
+    .facility-price {
+      color: var(--teal-dark);
+      font-size: 1.18rem;
+      font-weight: 900;
+    }
+
+    .facility-price small {
+      display: block;
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 600;
+    }
+
+    /* GALLERY */
+
+    .gallery-section {
+      background: var(--sand);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-rows: 190px;
+      gap: 12px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #e9f2f3;
+      padding: 0;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 25px 12px 10px;
+      text-align: left;
+      color: white;
+      font-weight: 800;
+      font-size: .9rem;
+      background: linear-gradient(transparent, rgba(0,0,0,.65));
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+      background: var(--navy);
+      color: white;
+    }
+
+    .contact-section .section-heading h2 {
+      color: white;
+    }
+
+    .contact-section .section-heading p {
+      color: rgba(255,255,255,.75);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .contact-card h3 {
+      margin-bottom: 17px;
+      font-size: 1.25rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 12px;
+      margin: 17px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-detail .symbol {
+      font-size: 1.25rem;
+    }
+
+    .contact-detail strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .contact-detail span,
+    .contact-detail a {
+      color: rgba(255,255,255,.82);
+    }
+
+    .contact-detail a:hover {
+      color: #83e5e5;
+    }
+
+    .contact-note {
+      color: rgba(255,255,255,.75);
+      font-size: .91rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      padding: 25px 0 85px;
+      background: #092537;
+      color: rgba(255,255,255,.72);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand img {
+      width: 155px;
+      max-height: 65px;
+      object-fit: contain;
+    }
+
+    /* IMAGE LIGHTBOX */
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 500;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0,0,0,.92);
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(100%, 1100px);
+      max-height: 84vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 0;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,.18);
+      color: white;
+      font-size: 1.6rem;
+    }
+
+    .lightbox-prev { left: 12px; }
+    .lightbox-next { right: 12px; }
+
+    /* MOBILE INQUIRY BAR */
+
+    .mobile-inquiry {
+      display: none;
+      position: fixed;
+      z-index: 150;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 15px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,.97);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -5px 20px rgba(16,47,70,.09);
+    }
+
+    .mobile-inquiry .btn {
+      width: 100%;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+      .room-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .amenity-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .brand img {
+        width: 155px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding: 55px 0;
+      }
+
+      .nav {
+        min-height: 70px;
+      }
+
+      .brand img {
+        width: 145px;
+        max-height: 58px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 18px 5% 24px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 13px;
+        background: white;
+        box-shadow: 0 12px 18px rgba(16,47,70,.10);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 7px 0;
+      }
+
+      .nav-links .btn {
+        padding: 11px 16px;
+      }
+
+      .hero {
+        min-height: 560px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(5,35,52,.79), rgba(5,35,52,.42)),
+          url("Resort2.png") center / cover no-repeat;
+      }
+
+      .hero-content {
+        padding: 70px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.45rem, 11vw, 3.6rem);
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .room-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .room-main-photo {
+        height: 250px;
+      }
+
+      .room-description {
+        min-height: 0;
+      }
+
+      .amenity-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+      }
+
+      .amenity {
+        padding: 19px 10px;
+      }
+
+      .facilities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facility-card {
+        grid-template-columns: 40% 1fr;
+      }
+
+      .facility-card > img {
+        min-height: 190px;
+      }
+
+      .facility-info {
+        padding: 16px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 155px;
+        gap: 9px;
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .contact-card {
+        padding: 22px;
+      }
+
+      .mobile-inquiry {
+        display: block;
+      }
+
+      .lightbox-prev { left: 5px; }
+      .lightbox-next { right: 5px; }
+
+      .site-footer {
+        padding-bottom: 105px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .facility-card {
+        grid-template-columns: 1fr;
+      }
+
+      .facility-card > img {
+        height: 180px;
+        min-height: 0;
+      }
+
+      .room-price {
+        font-size: 1.25rem;
+      }
+
+      .room-inquire {
+        padding: 8px 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="BluVali Beach Resort home">
+        <!-- Palitan ang logo.png kung iba ang eksaktong filename ng logo mo -->
+        <img src="logo.png" alt="BluVali Beach Resort Logo">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        type="button" aria-label="Open navigation menu"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#rooms">Rooms & Rates</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="#contact">Inquire Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-tag">Your getaway in Morong, Bataan</span>
+          <h1>Your Beach Escape <span>Awaits.</span></h1>
+          <p>
+            Make time for the people who matter. Enjoy refreshing pool
+            moments, comfortable accommodations, and beach access at
+            BluVali Beach Resort.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#rooms">Explore Rooms & Rates</a>
+            <a class="btn btn-outline" href="#gallery">View Our Photos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK INTRO -->
+    <section class="intro-strip" aria-label="Resort highlights">
+      <div class="container intro-grid">
+        <div class="intro-item">
+          <strong>🏖️ Beach Access</strong>
+          <span>Enjoy time by the shore</span>
+        </div>
+        <div class="intro-item">
+          <strong>🏊 Two Swimming Pools</strong>
+          <span>Fun and relaxation for guests</span>
+        </div>
+        <div class="intro-item">
+          <strong>👨‍👩‍👧‍👦 For Every Getaway</strong>
+          <span>Rooms for different group sizes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROOMS AND RATES -->
+    <section class="section rooms-section" id="rooms">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Stay with us</span>
+          <h2>Our Rooms & Rates</h2>
+          <p>
+            Choose the room that suits your group. Browse the photos
+            available under each category to see more views.
+          </p>
+        </div>
+
+        <div class="room-grid" id="roomGrid">
+          <!-- Room cards are generated from the categories below.
+               The public labels are category names, never photo filenames. -->
+        </div>
+
+        <p class="pricing-note">
+          For availability, inclusions, and other details, please contact
+          BluVali Beach Resort directly. Rates and availability may be
+          subject to confirmation.
+        </p>
+      </div>
+    </section>
+
+    <!-- AMENITIES -->
+    <section class="section amenities-section" id="amenities">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Comfort & convenience</span>
+          <h2>Resort Amenities</h2>
+          <p>
+            Enjoy a comfortable stay with facilities for your getaway,
+            family gathering, or group outing.
+          </p>
+        </div>
+
+        <div class="amenity-grid">
+          <article class="amenity">
+            <div class="amenity-icon">🏊</div>
+            <h3>Two Swimming Pools</h3>
+            <p>Take a refreshing dip and enjoy pool time.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">🏖️</div>
+            <h3>Beach Access</h3>
+            <p>Enjoy access to the nearby beach.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">🚗</div>
+            <h3>Roofed Parking</h3>
+            <p>Secured, roofed parking area.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">🍹</div>
+            <h3>Bar & Lounge</h3>
+            <p>A place to relax and spend time together.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">❄️</div>
+            <h3>Air-Conditioned Rooms</h3>
+            <p>Comfortable rooms with air conditioning.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">📺</div>
+            <h3>Television</h3>
+            <p>Television in the rooms.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">🚿</div>
+            <h3>Private Bathroom</h3>
+            <p>Private bathroom in the rooms.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">☕</div>
+            <h3>Electric Kettle</h3>
+            <p>Added convenience for your stay.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">📶</div>
+            <h3>Wi-Fi</h3>
+            <p>Wi-Fi access for guests.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">🧴</div>
+            <h3>Hygiene Kit</h3>
+            <p>Hygiene essentials for your visit.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">🍽️</div>
+            <h3>Kitchen Area</h3>
+            <p>See the kitchen area in our photo gallery.</p>
+          </article>
+
+          <article class="amenity">
+            <div class="amenity-icon">👥</div>
+            <h3>Group Gatherings</h3>
+            <p>Accommodation options for different group sizes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCTION ROOM AND PAVILION -->
+    <section class="section" id="facilities">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Gather together</span>
+          <h2>Event & Function Spaces</h2>
+          <p>
+            Need a space for a gathering or event? Explore our rental options.
+          </p>
+        </div>
+
+        <div class="facilities-grid">
+          <article class="facility-card">
+            <img src="Hall1.png" alt="Function Room at BluVali Beach Resort"
+              loading="lazy">
+            <div class="facility-info">
+              <h3>Function Room</h3>
+              <p>A space for gatherings, celebrations, and group activities.</p>
+              <div class="facility-price">
+                ₱7,000
+                <small>5 hours</small>
+              </div>
+              <a class="btn btn-primary room-inquire" href="#contact">
+                Inquire Now
+              </a>
+            </div>
+          </article>
+
+          <article class="facility-card">
+            <img src="Pavillion.png" alt="Pavilion Rental at BluVali Beach Resort"
+              loading="lazy">
+            <div class="facility-info">
+              <h3>Pavilion Rental</h3>
+              <p>An open space for spending time and gathering with your group.</p>
+              <div class="facility-price">
+                ₱5,000
+                <small>5 hours</small>
+              </div>
+              <a class="btn btn-primary room-inquire" href="#contact">
+                Inquire Now
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">A closer look</span>
+          <h2>Explore BluVali</h2>
+          <p>
+            Take a look at our resort, swimming pools, beach, rooms,
+            and gathering spaces.
+          </p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Gallery photos are added automatically by JavaScript. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Plan your visit</span>
+          <h2>Inquire About Your Stay</h2>
+          <p>
+            Contact us for room availability, current rates, and other
+            details before your visit.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Contact Information</h3>
+
+            <div class="contact-detail">
+              <span class="symbol">📍</span>
+              <div>
+                <strong>Resort Address</strong>
+                <span>
+                  Lot 422, Sitio Panibatuhan, Nagbalayong,
+                  Morong, Bataan, Philippines
+                </span>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <span class="symbol">📞</span>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+639157135595">0915 713 5595</a>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <span class="symbol">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:bluvalibeachandresort@gmail.com">
+                  bluvalibeachandresort@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3>Ready for a Beach Getaway?</h3>
+            <p class="contact-note">
+              Send us your preferred visit dates, number of guests,
+              and room category so our team can assist with your inquiry.
+            </p>
+
+            <div class="contact-actions">
+              <a class="btn btn-light"
+                href="tel:+639157135595">Call the Resort</a>
+              <a class="btn btn-outline"
+                href="mailto:bluvalibeachandresort@gmail.com?subject=BluVali%20Beach%20Resort%20Inquiry">
+                Send an Email
+              </a>
+            </div>
+
+            <p style="margin-top:20px;color:rgba(255,255,255,.7);font-size:.85rem;">
+              Please confirm rates, availability, and inclusions directly
+              with the resort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="logo.png" alt="BluVali Beach Resort Logo" loading="lazy">
+      </div>
+      <p>BluVali Beach Resort · Morong, Bataan</p>
+      <p>© <span id="currentYear"></span> BluVali Beach Resort. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- MOBILE INQUIRY BUTTON -->
+  <div class="mobile-inquiry">
+    <a class="btn btn-primary" href="#contact">Inquire Now</a>
+  </div>
+
+  <!-- PHOTO LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog"
+    aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" id="lightboxClose"
+      type="button" aria-label="Close photo viewer">×</button>
+    <button class="lightbox-prev" id="lightboxPrev"
+      type="button" aria-label="Previous photo">‹</button>
+    <img id="lightboxImage" src="" alt="Resort photo">
+    <button class="lightbox-next" id="lightboxNext"
+      type="button" aria-label="Next photo">›</button>
+  </div>
+
+  <script>
+    /*
+      ROOM CATEGORY CONFIGURATION
+
+      Important:
+      - The name shown on the website comes from "name".
+      - The filenames below are used only as image paths.
+      - Do not create a separate room card for each photo.
+    */
+
+    const roomCategories = [
+      {
+        name: "Room Good for 2 Pax",
+        price: "₱3,000",
+        description: "A room option for a getaway for two.",
+        images: ["Room1.png", "Room2.png"]
+      },
+      {
+        name: "Room Good for 4 Pax",
+        price: "₱5,000",
+        description: "A room option for a small family or group.",
+        images: ["Room3.png", "Room4.png"]
+      },
+      {
+        name: "Room Good for 6 Pax",
+        price: "₱6,000",
+        description: "A room option for a family or group of six.",
+        images: ["Room5.png", "Room6.png"]
+      },
+      {
+        name: "Room Good for 8 Pax",
+        price: "₱8,000",
+        description: "A room option for a larger family or group.",
+        images: ["Room9.png", "Room10.png"]
+      },
+      {
+        name: "Room Good for 15 Pax",
+        price: "₱15,000",
+        description: "A room option for a bigger group getaway.",
+        images: [
+          "Room7.png",
+          "Room11.png",
+          "Room12.png",
+          "Room13.png",
+          "Room14.png",
+          "Room15.png"
+        ]
+      }
+    ];
+
+    const roomGrid = document.getElementById("roomGrid");
+    const galleryGrid = document.getElementById("galleryGrid");
+
+    function createRoomCard(room, index) {
+      const card = document.createElement("article");
+      card.className = "room-card";
+
+      const photos = document.createElement("div");
+      photos.className = "room-photos";
+
+      const mainImage = document.createElement("img");
+      mainImage.className = "room-main-photo";
+      mainImage.src = room.images[0];
+      mainImage.alt = room.name;
+      mainImage.loading = "lazy";
+      mainImage.tabIndex = 0;
+      mainImage.setAttribute("role", "button");
+      mainImage.setAttribute("aria-label", "View photos for " + room.name);
+
+      mainImage.addEventListener("click", () => {
+        openLightbox(room.images, 0, room.name);
+      });
+
+      mainImage.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(room.images, 0, room.name);
+        }
+      });
+
+      const photoCount = document.createElement("span");
+      photoCount.className = "photo-count";
+      photoCount.textContent =
+        "📷 " + room.images.length +
+        (room.images.length === 1 ? " photo" : " photos");
+
+      photos.append(mainImage, photoCount);
+
+      const thumbnails = document.createElement("div");
+      thumbnails.className = "room-thumbnails";
+      thumbnails.setAttribute("aria-label", "More photos of " + room.name);
+
+      room.images.forEach((filename, photoIndex) => {
+        const thumb = document.createElement("img");
+        thumb.src = filename;
+        thumb.alt = room.name + " photo " + (photoIndex + 1);
+        thumb.loading = "lazy";
+        thumb.tabIndex = 0;
+        thumb.setAttribute("role", "button");
+        thumb.setAttribute("aria-label",
+          "Show another photo for " + room.name);
+        if (photoIndex === 0) thumb.classList.add("active");
+
+        const selectPhoto = () => {
+          mainImage.src = filename;
+          mainImage.alt = room.name;
+          thumbnails.querySelectorAll("img").forEach(image => {
+            image.classList.remove("active");
+          });
+          thumb.classList.add("active");
+        };
+
+        thumb.addEventListener("click", selectPhoto);
+        thumb.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectPhoto();
+          }
+        });
+
+        thumbnails.appendChild(thumb);
+      });
+
+      const info = document.createElement("div");
+      info.className = "room-info";
+
+      const title = document.createElement("h3");
+      title.textContent = room.name;
+
+      const description = document.createElement("p");
+      description.className = "room-description";
+      description.textContent = room.description;
+
+      const priceRow = document.createElement("div");
+      priceRow.className = "room-price-row";
+
+      const price = document.createElement("div");
+      price.className = "room-price";
+      price.textContent = room.price;
+
+      const priceNote = document.createElement("small");
+      priceNote.textContent = "per room";
+      price.appendChild(document.createElement("br"));
+      price.appendChild(priceNote);
+
+      const inquire = document.createElement("a");
+      inquire.className = "btn btn-primary room-inquire";
+      inquire.href = "#contact";
+      inquire.textContent = "Inquire Now";
+      inquire.setAttribute("aria-label", "Inquire about " + room.name);
+
+      priceRow.append(price, inquire);
+      info.append(title, description, priceRow);
+      card.append(photos, thumbnails, info);
+
+      return card;
+    }
+
+    roomCategories.forEach((room, index) => {
+      roomGrid.appendChild(createRoomCard(room, index));
+    });
+
+    /*
+      GALLERY
+      Add the resort photos here. The filename is used as the image source;
+      the visitor sees only the friendly caption.
+    */
+
+    const galleryPhotos = [
+      { file: "Resort2.png", caption: "Discover the Resort" },
+      { file: "Pool1.png", caption: "Swimming Pool" },
+      { file: "Beach1.png", caption: "Beach Access" },
+      { file: "Room1.png", caption: "Room Accommodation" },
+      { file: "Resort3.png", caption: "Resort Views" },
+      { file: "Pool2.png", caption: "Poolside Moments" },
+      { file: "Beach2.png", caption: "Enjoy the Shore" },
+      { file: "Hall1.png", caption: "Function Room" },
+      { file: "Pavillion.png", caption: "Pavilion Rental" },
+      { file: "Kitchen.png", caption: "Kitchen Area" },
+      { file: "Beach3.png", caption: "Beach Scenery" },
+      { file: "Resort4.png", caption: "Resort Facilities" },
+      { file: "Resort7.png", caption: "More Resort Views" }
+    ];
+
+    galleryPhotos.forEach((photo, index) => {
+      const item = document.createElement("button");
+      item.type = "button";
+      item.className = "gallery-item";
+      item.setAttribute("aria-label", "View photo: " + photo.caption);
+
+      const img = document.createElement("img");
+      img.src = photo.file;
+      img.alt = photo.caption;
+      img.loading = "lazy";
+
+      const caption = document.createElement("span");
+      caption.textContent = photo.caption;
+
+      item.append(img, caption);
+      item.addEventListener("click", () => {
+        openLightbox(
+          galleryPhotos.map(item => item.file),
+          index,
+          photo.caption
+        );
+      });
+
+      galleryGrid.appendChild(item);
+    });
+
+    /*
+      MOBILE NAVIGATION
+    */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    /*
+      PHOTO LIGHTBOX
+    */
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+
+    let currentPhotos = [];
+    let currentPhotoIndex = 0;
+    let currentPhotoCaption = "";
+
+    function openLightbox(photos, startIndex, caption) {
+      currentPhotos = photos;
+      currentPhotoIndex = startIndex;
+      currentPhotoCaption = caption || "Resort photo";
+      updateLightboxImage();
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+      lightboxClose.focus();
+    }
+
+    function updateLightboxImage() {
+      if (!currentPhotos.length) return;
+
+      lightboxImage.src = currentPhotos[currentPhotoIndex];
+      lightboxImage.alt = currentPhotoCaption;
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function showPreviousPhoto() {
+      if (!currentPhotos.length) return;
+      currentPhotoIndex =
+        (currentPhotoIndex - 1 + currentPhotos.length) % currentPhotos.length;
+      updateLightboxImage();
+    }
+
+    function showNextPhoto() {
+      if (!currentPhotos.length) return;
+      currentPhotoIndex =
+        (currentPhotoIndex + 1) % currentPhotos.length;
+      updateLightboxImage();
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxPrev.addEventListener("click", showPreviousPhoto);
+    lightboxNext.addEventListener("click", showNextPhoto);
+
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (!lightbox.classList.contains("open")) return;
+
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showPreviousPhoto();
+      if (event.key === "ArrowRight") showNextPhoto();
+    });
+
+
+    
+/* MOBILE SWIPE: Facebook-style photo navigation */
+let touchStartX = 0;
+let touchStartY = 0;
+
+lightbox.addEventListener("touchstart", event => {
+  if (!lightbox.classList.contains("open")) return;
+
+  touchStartX = event.changedTouches[0].screenX;
+  touchStartY = event.changedTouches[0].screenY;
+}, { passive: true });
+
+lightbox.addEventListener("touchend", event => {
+  if (!lightbox.classList.contains("open")) return;
+
+  const touchEndX = event.changedTouches[0].screenX;
+  const touchEndY = event.changedTouches[0].screenY;
+
+  const diffX = touchEndX - touchStartX;
+  const diffY = touchEndY - touchStartY;
+
+  // Ignore vertical scrolling gestures and small movements.
+  if (Math.abs(diffX) < 50 || Math.abs(diffX) < Math.abs(diffY)) {
+    return;
+  }
+
+  if (diffX < 0) {
+    showNextPhoto();       // Swipe left: next photo
+  } else {
+    showPreviousPhoto();   // Swipe right: previous photo
+  }
+}, { passive: true });
+
+
+    /*
+      FOOTER YEAR
+    */
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
