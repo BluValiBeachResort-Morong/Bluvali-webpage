@@ -755,6 +755,22 @@
 .lightbox-prev { left: 12px; }
 .lightbox-next { right: 12px; }
 
+    /* Desktop: show previous/next arrows */
+.lightbox-prev,
+.lightbox-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile: swipe only */
+@media (max-width: 700px) {
+  .lightbox-prev,
+  .lightbox-next {
+    display: none !important;
+  }
+}
+
 @media (max-width: 700px) {
   .viewer-top {
     flex-basis: 58px;
@@ -1371,7 +1387,7 @@
 
   <div class="viewer-bottom">
     
-<span>Swipe left or right to explore photos</span>
+<span>Use arrows or swipe left or right to explore photos</span>
 
   </div>
 </div>
