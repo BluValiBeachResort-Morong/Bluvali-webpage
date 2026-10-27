@@ -152,12 +152,14 @@
       min-width: 0;
     }
 
-    .brand img {
-      width: 180px;
-      max-height: 68px;
-      object-fit: contain;
-      object-position: left center;
-    }
+
+.brand img {
+  width: 240px;
+  max-height: 82px;
+  object-fit: contain;
+  object-position: left center;
+}
+
 
     .nav-links {
       display: flex;
@@ -823,9 +825,9 @@
       }
 
       .brand img {
-        width: 145px;
-        max-height: 58px;
-      }
+  width: 190px;
+  max-height: 68px;
+}
 
       .menu-toggle {
         display: block;
@@ -1519,21 +1521,49 @@
       the visitor sees only the friendly caption.
     */
 
-    const galleryPhotos = [
-      { file: "Resort2.png", caption: "Discover the Resort" },
-      { file: "Pool1.png", caption: "Swimming Pool" },
-      { file: "Beach1.png", caption: "Beach Access" },
-      { file: "Room1.png", caption: "Room Accommodation" },
-      { file: "Resort3.png", caption: "Resort Views" },
-      { file: "Pool2.png", caption: "Poolside Moments" },
-      { file: "Beach2.png", caption: "Enjoy the Shore" },
-      { file: "Hall1.png", caption: "Function Room" },
-      { file: "Pavillion.png", caption: "Pavilion Rental" },
-      { file: "Kitchen.png", caption: "Kitchen Area" },
-      { file: "Beach3.png", caption: "Beach Scenery" },
-      { file: "Resort4.png", caption: "Resort Facilities" },
-      { file: "Resort7.png", caption: "More Resort Views" }
-    ];
+   
+const galleryPhotos = [
+  // RESORT VIEWS
+  { file: "Resort2.png", caption: "Discover the Resort" },
+  { file: "Resort3.png", caption: "Resort Views" },
+  { file: "Resort4.png", caption: "Resort Facilities" },
+  { file: "Resort6.png", caption: "Resort View" },
+  { file: "Resort7.png", caption: "More Resort Views" },
+  { file: "Resort 8.jpg", caption: "Resort Views" },
+  { file: "Resort 9.jpg", caption: "Resort Scenery" },
+  { file: "Resort 10.jpg", caption: "Resort View" },
+  { file: "Resort 11.jpg", caption: "Resort Surroundings" },
+  { file: "Resort 12.jpg", caption: "Resort Scenery" },
+  { file: "Resort 13.jpg", caption: "Resort View" },
+  { file: "Resort 14.jpg", caption: "Explore the Resort" },
+  { file: "Resort 15.jpg", caption: "Resort Surroundings" },
+  { file: "Resort 16.jpg", caption: "Resort Scenery" },
+  { file: "Resort 17.jpg", caption: "Resort View" },
+  { file: "Resort 18.jpg", caption: "Resort Surroundings" },
+  { file: "Resort 19.jpg", caption: "Resort Scenery" },
+  { file: "Resort 20.jpg", caption: "Resort View" },
+  { file: "Resort 21.jpg", caption: "Resort Surroundings" },
+  { file: "Resort 22.jpg", caption: "More Resort Views" },
+
+  // SWIMMING POOLS
+  { file: "Pool1.png", caption: "Swimming Pool" },
+  { file: "Pool2.png", caption: "Poolside Moments" },
+  { file: "Pool3.jpg", caption: "Swimming Pool" },
+
+  // BEACH
+  { file: "Beach1.png", caption: "Beach Access" },
+  { file: "Beach2.png", caption: "Enjoy the Shore" },
+  { file: "Beach3.png", caption: "Beach Scenery" },
+
+  // ROOMS
+  { file: "Room1.png", caption: "Room Accommodation" },
+
+  // FACILITIES
+  { file: "Hall1.png", caption: "Function Room" },
+  { file: "Pavillion.png", caption: "Pavilion Rental" },
+  { file: "Kitchen.png", caption: "Kitchen Area" }
+];
+
 
     galleryPhotos.forEach((photo, index) => {
       const item = document.createElement("button");
