@@ -1448,6 +1448,15 @@
     const roomGrid = document.getElementById("roomGrid");
     const galleryGrid = document.getElementById("galleryGrid");
 
+    // Make Function Room and Pavilion photos clickable
+document.querySelectorAll(".facility-card > img").forEach(image => {
+  image.style.cursor = "zoom-in";
+
+  image.addEventListener("click", () => {
+    openLightbox([image.src], 0, image.alt);
+  });
+});
+
     function createRoomCard(room, index) {
       const card = document.createElement("article");
       card.className = "room-card";
